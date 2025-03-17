@@ -1,5 +1,6 @@
 import random
 
+
 class Hero:
     def __init__(self, name, health=100, attack_power=20):
         self.name = name
@@ -23,11 +24,13 @@ class Game:
     def start(self):
         print("Начинаем битву героев!")
         while self.player.is_alive() and self.computer.is_alive():
+            input("Нажмите Enter, чтобы совершить ход...")
             self.player.attack(self.computer)
             if not self.computer.is_alive():
                 print(f"{self.computer.name} побежден! {self.player.name} выиграл!")
                 break
 
+            input("Нажмите Enter, чтобы продолжить...")
             self.computer.attack(self.player)
             if not self.player.is_alive():
                 print(f"{self.player.name} побежден! {self.computer.name} выиграл!")
